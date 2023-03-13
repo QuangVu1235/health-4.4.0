@@ -561,7 +561,7 @@ public class SwiftHealthPlugin: NSObject, FlutterPlugin {
                 print("Error getting total steps in interval \(error.code)")
                 
                 DispatchQueue.main.async {
-                    result(error.code)
+                    result(["error": error.code])
                 }
                 return
             }
