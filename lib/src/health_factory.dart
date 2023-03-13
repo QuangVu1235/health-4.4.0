@@ -384,12 +384,15 @@ class HealthFactory {
       'getTotalStepsInInterval',
       args,
     );
-    Map<String, dynamic> error = jsonDecode(jsonEncode(value));
-    if (error['error'] != null) {
-      throw "401";
-    } else {
+    if (value.runtimeType == int) {
       totalStep = value;
+    } else {
+      Map<String, dynamic> error = jsonDecode(jsonEncode(value));
+      if (error['error'] != null) {
+        throw "401";
+      }
     }
+
     return totalStep;
   }
 
