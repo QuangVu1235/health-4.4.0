@@ -347,8 +347,8 @@ public class SwiftHealthPlugin: NSObject, FlutterPlugin {
             totalDistance = HKQuantity(unit: unitDict[(arguments["totalDistanceUnit"] as! String)]!, doubleValue: td)
         }
         
-       let dateFrom = Date(timeIntervalSince1970: startTime.doubleValue / 1000)
-       let dateTo = Date(timeIntervalSince1970: endTime.doubleValue / 1000)
+        let dateFrom = Date(timeIntervalSince1970: startTime.doubleValue / 1000)
+        let dateTo = Date(timeIntervalSince1970: endTime.doubleValue / 1000)
         
         var workout: HKWorkout
         
@@ -558,10 +558,10 @@ public class SwiftHealthPlugin: NSObject, FlutterPlugin {
             
             guard let queryResult = queryResult else {
                 let error = error! as NSError
-                print("Error getting total steps in interval \(error.localizedDescription)")
+                print("Error getting total steps in interval \(error.code)")
                 
                 DispatchQueue.main.async {
-                    result(nil)
+                    result(error.code)
                 }
                 return
             }
@@ -574,12 +574,47 @@ public class SwiftHealthPlugin: NSObject, FlutterPlugin {
             }
             
             let totalSteps = Int(steps)
-            DispatchQueue.main.async {
-                result(totalSteps)
+            self.getStepAddManual(startDate: dateFrom, endDate: dateTo){
+                (value) in  DispatchQueue.main.async {
+                    result(totalSteps - value)
+                }
             }
+            
         }
         
         HKHealthStore().execute(query)
+    }
+    
+    func getStepAddManual(startDate: Date, endDate: Date, completion: @escaping (Int) -> Void){
+        let sampleType = HKObjectType.quantityType(forIdentifier: .stepCount)!
+        let predicate = HKQuery.predicateForSamples(withStart: startDate, end: endDate, options: .strictStartDate)
+        
+        let query = HKSampleQuery(sampleType: sampleType, predicate: predicate, limit: HKObjectQueryNoLimit, sortDescriptors: nil) {
+            (query, samples, error) in
+            
+            guard error == nil else {
+                print("Error: \(error!.localizedDescription)")
+                return
+            }
+            
+            guard let samples = samples as? [HKQuantitySample] else {
+                return
+            }
+            var steps = 0.0
+            for sample in samples {
+                if(sample.sourceRevision.source.bundleIdentifier.hasPrefix("com.apple.Health")){
+                    steps = steps + sample.quantity.doubleValue(for: HKUnit.count())
+                }
+            }
+            
+            
+            DispatchQueue.main.async {
+                completion(Int(steps))
+            }
+            
+        }
+        HKHealthStore().execute(query)
+        
     }
     
     func unitLookUp(key: String) -> HKUnit {
@@ -667,7 +702,7 @@ public class SwiftHealthPlugin: NSObject, FlutterPlugin {
         workoutActivityTypeMap["FLEXIBILITY"] = .flexibility
         workoutActivityTypeMap["WALKING"] = .walking
         workoutActivityTypeMap["RUNNING"] = .running
-        workoutActivityTypeMap["RUNNING_JOGGING"] = .running // Supported due to combining with Android naming 
+        workoutActivityTypeMap["RUNNING_JOGGING"] = .running // Supported due to combining with Android naming
         workoutActivityTypeMap["RUNNING_SAND"] = .running // Supported due to combining with Android naming
         workoutActivityTypeMap["RUNNING_TREADMILL"] = .running // Supported due to combining with Android naming
         workoutActivityTypeMap["WHEELCHAIR_WALK_PACE"] = .wheelchairWalkPace
