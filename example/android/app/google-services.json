@@ -1,0 +1,123 @@
+{
+  "project_info": {
+    "project_number": "86417508267",
+    "firebase_url": "https://ohiruco.firebaseio.com",
+    "project_id": "ohiruco",
+    "storage_bucket": "ohiruco.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:86417508267:android:b0b9e7ecb48d64e5",
+        "android_client_info": {
+          "package_name": "jp.cayto.oshiruco.android"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "86417508267-7p7bmeeqhfiopm8k95q3l36u6q033nv9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "jp.cayto.oshiruco.android",
+            "certificate_hash": "025c5d6a067cdfafefe9440d55aac45c864f6203"
+          }
+        },
+        {
+          "client_id": "86417508267-pfos23a2oo9pltvk27daurv57ke38eq8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA7IZrYWr1n7ZVUSVZcRHJ1hKh6-6ekfCI"
+        },
+        {
+          "current_key": "AIzaSyCF2MtzJg6GGbBNb6lbiSh8WYLc5nMff6c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "86417508267-1ch3hr5rvpkk93v8ijl7ovgd7u46m0ib.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "86417508267-cohtmug5j1lle99jfpkeocvo264ijo2u.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "jp.cayto.oshiruco.ios.stg",
+                "app_store_id": "1475579446"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:86417508267:android:d0d925701764afbe",
+        "android_client_info": {
+          "package_name": "jp.cayto.oshiruco.android.stg"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "86417508267-2pu28ir9aa3q35n496jq49jj11fpe24i.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "jp.cayto.oshiruco.android.stg",
+            "certificate_hash": "9386a15b7ea2b6cf618c32572d19d71a50f4e725"
+          }
+        },
+        {
+          "client_id": "86417508267-bmho9guv79ra7hem3ji928nemfo73q5a.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "jp.cayto.oshiruco.android.stg",
+            "certificate_hash": "8c58d5b7a26042af30ecee77d32b51155d7de92c"
+          }
+        },
+        {
+          "client_id": "86417508267-lseaqik2bqn7ur56qbk7slfal1jvv0q4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "jp.cayto.oshiruco.android.stg",
+            "certificate_hash": "9df9dfc1fdb3c6074f5687bc57cdaa9671255580"
+          }
+        },
+        {
+          "client_id": "86417508267-pfos23a2oo9pltvk27daurv57ke38eq8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA7IZrYWr1n7ZVUSVZcRHJ1hKh6-6ekfCI"
+        },
+        {
+          "current_key": "AIzaSyCF2MtzJg6GGbBNb6lbiSh8WYLc5nMff6c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "86417508267-1ch3hr5rvpkk93v8ijl7ovgd7u46m0ib.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "86417508267-cohtmug5j1lle99jfpkeocvo264ijo2u.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "jp.cayto.oshiruco.ios.stg",
+                "app_store_id": "1475579446"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
